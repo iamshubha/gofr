@@ -6,7 +6,7 @@ COPY . .
 
 RUN go build -ldflags "-linkmode external -extldflags -static" -a examples/http-server/main.go
 
-FROM alpine:latest
+FROM alpine:3.23.3
 RUN apk add --no-cache tzdata ca-certificates
 COPY --from=0 /go/src/gofr.dev/main /main
 EXPOSE 8000
